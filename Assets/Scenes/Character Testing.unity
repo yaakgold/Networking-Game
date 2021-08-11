@@ -225,7 +225,7 @@ MonoBehaviour:
   _moveSpeed: 10
   _gravity: -40
   _jumpHeight: 3
-  _groundDistance: 0.5
+  _groundDistance: 0.27
   _groundCheck: {fileID: 1843278181}
   _groundMask:
     serializedVersion: 2
@@ -920,7 +920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843278180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.72, z: 0}
+  m_LocalPosition: {x: 0, y: -1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 166725087}
