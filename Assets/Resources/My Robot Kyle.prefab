@@ -226,21 +226,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &476696537768464470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426220103605478288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71762e4810b7dd9469d548964282e7a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beams: {fileID: 1412006040}
-  Health: 1
-  PlayerUiPrefab: {fileID: 0}
 --- !u!114 &-3494077838653151436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +256,34 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &476696537768464470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426220103605478288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71762e4810b7dd9469d548964282e7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beams: {fileID: 1412006040}
+  Health: 1
+  PlayerUiPrefab: {fileID: 0}
+--- !u!114 &2114846947878448134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426220103605478288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8fb301a835ef34e94463e9777442a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionDampTime: 0.25
 --- !u!114 &3727731689240898808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,19 +301,6 @@ MonoBehaviour:
   centerOffset: {x: 0, y: 4, z: 0}
   followOnStart: 1
   smoothSpeed: 0.125
---- !u!114 &2114846947878448134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426220103605478288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8fb301a835ef34e94463e9777442a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  directionDampTime: 0.25
 --- !u!114 &5686993844490574982
 MonoBehaviour:
   m_ObjectHideFlags: 0
