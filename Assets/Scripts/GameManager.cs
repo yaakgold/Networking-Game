@@ -96,8 +96,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
         }
 
-        Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
-        PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.LogFormat("PhotonNetwork : Loading Level : {0}", 1);
+        PhotonNetwork.LoadLevel("Room for 1");
     }
 
     #endregion

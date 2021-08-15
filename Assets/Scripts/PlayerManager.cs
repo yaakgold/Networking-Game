@@ -14,12 +14,14 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             //We own this player: send other our data
+            //stream.SendNext(transform.position);
             stream.SendNext(IsFiring);
             stream.SendNext(Health);
         }
         else
         {
             //Network player, receive data
+            //transform.position = (Vector3)stream.ReceiveNext();
             IsFiring = (bool)stream.ReceiveNext();
             Health = (float)stream.ReceiveNext();
         }
