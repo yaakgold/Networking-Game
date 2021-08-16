@@ -27,7 +27,6 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
         if(fire)
         {
             ShootGun();
-            fire = false;
         }
         if(automatic)
         {
@@ -44,7 +43,6 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
             if(timer < fireRate)
             {
                 timer += Time.deltaTime;
-                fire = false;
             }
         }
         else
@@ -52,7 +50,6 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
             if(Input.GetMouseButtonDown(0) || fire)
             {
                 ShootGun();
-                fire = false;
             }
         }
 
