@@ -63,7 +63,7 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
                 //GetComponent<PlayerController>().Health -= .1f;
-                
+                pc.Health -= .1f;
             }
             Debug.Log(hitInfo.collider.name);
         }
