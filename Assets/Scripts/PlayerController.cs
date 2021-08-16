@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
             return;
         }
         
-        if (!other.name.Contains("Bullet"))
+        if (!other.CompareTag("Bullet"))
         {
             return;
         }
