@@ -60,8 +60,8 @@ public class Shoot : MonoBehaviourPunCallbacks
             if (hitInfo.collider.gameObject == gameObject) return;
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
-                //GetComponent<PlayerController>().Health -= .1f;
-                pc.Health -= .1f;
+                GetComponent<PlayerController>().Health -= .1f;
+                //pc.Health -= .1f;
             }
             Debug.Log(hitInfo.collider.name);
         }
