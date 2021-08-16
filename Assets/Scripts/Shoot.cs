@@ -60,7 +60,7 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
         ShootGFX gfx = GetComponent<ShootGFX>();
 
         var bullet = Instantiate(bulletPref, gfx.firePointPlayer.transform.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * power);
+        bullet.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * power);
 
         //RaycastHit hitInfo;
 
