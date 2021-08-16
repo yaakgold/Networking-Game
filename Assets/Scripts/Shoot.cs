@@ -28,6 +28,7 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
         {
             ShootGun();
         }
+
         if(automatic)
         {
             if (!photonView.IsMine) return;
