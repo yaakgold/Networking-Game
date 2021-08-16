@@ -257,6 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb6d66b444f96042a8b55ed4420c983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  automatic: 0
+  timer: 0
+  fireRate: 0.2
 --- !u!114 &166725091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 6600365830253675681, guid: 345293bf65173ea469eb40adf374201e, type: 3}
-  firePoint: {fileID: 974006134}
+  firePointPlayer: {fileID: 974006134}
+  firePointOffScreen: {fileID: 0}
 --- !u!1 &742231106
 GameObject:
   m_ObjectHideFlags: 0
