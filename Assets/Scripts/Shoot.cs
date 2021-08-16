@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Shoot : MonoBehaviourPunCallbacks
 {
     public bool automatic;
     public float timer;
@@ -22,6 +22,7 @@ public class Shoot : MonoBehaviour
 
     private void Update()
     {
+        if (!photonView.IsMine) return;
         if(automatic)
         {
             if(Input.GetMouseButton(0))
@@ -40,7 +41,7 @@ public class Shoot : MonoBehaviour
         }
         else
         {
-            if(Input.GetMouseButtonDown(0) || fire)
+            if(Input.GetMouseButtonDown(0))
             {
                 ShootGun();
             }
