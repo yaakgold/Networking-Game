@@ -130,16 +130,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     private void OnCollisionEnter(Collision collision)
     {
         print(collision.gameObject.name);
-        if (!photonView.IsMine)
+        if(collision.gameObject.CompareTag("Bullet"))
         {
-            return;
+            Health -= 1f;
+            Destroy(collision.gameObject);
         }
-        
-        if (!collision.gameObject.CompareTag("Bullet"))
-        {
-            return;
-        }
-        Health -= 0.1f;
-        Destroy(collision.gameObject);
     }
 }
