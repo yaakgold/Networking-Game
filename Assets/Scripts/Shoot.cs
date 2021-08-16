@@ -56,6 +56,7 @@ public class Shoot : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, mask))
         {
+            if (hitInfo.collider.gameObject == gameObject) return;
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
                 //GetComponent<PlayerController>().Health -= .1f;
