@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsReading)
+        if (stream.IsWriting)
         {
             //We own this player: send other our data
             stream.SendNext(Health);
