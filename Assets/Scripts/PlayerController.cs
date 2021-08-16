@@ -7,6 +7,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
 {
     public float Health = 1f;
 
+    [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
+    public static GameObject LocalPlayerInstance;
+
+    [Tooltip("The Player's UI GameObject Prefab")]
+    [SerializeField]
+    public GameObject PlayerUiPrefab;
     [SerializeField]
     private float _moveSpeed = -10f;
     [SerializeField]
@@ -27,15 +33,38 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        if (photonView.IsMine)
+        {
+            LocalPlayerInstance = gameObject;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         _controller = GetComponent<CharacterController>();
         _animator = GetComponentInChildren<Animator>();
     }
+
+    private void Start()
+    {
+        if(!photonView.IsMine)
+        {
+            GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        }
+
+        if (PlayerUiPrefab != null)
+        {
+            GameObject _uiGo = Instantiate(PlayerUiPrefab);
+            _uiGo.GetComponent<PlayerUI>().SetTarget(this);
+        }
+    }
+
     void Update()
     {
         Gravity();
         if (photonView.IsMine)
         {
             Movement();
+            print(Health);
             if (Health <= 0f)
             {
                 GameManager.Instance.LeaveRoom();
@@ -74,5 +103,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private void JumpAnimation()
     {
         _animator.SetBool("grounded", _isGrounded);
+    }
+
+    public void TakeDamage()
+    {
+        Health -= .1f;
     }
 }

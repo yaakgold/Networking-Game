@@ -20,7 +20,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private Vector3 screenOffset = new Vector3(0f, 30f, 0f);
 
-    private PlayerManager target;
+    private PlayerController target;
 
     float characterControllerHeight = 0f;
     Transform targetTransform;
@@ -74,7 +74,7 @@ public class PlayerUI : MonoBehaviour
         {
             targetPosition = targetTransform.position;
             targetPosition.y += characterControllerHeight;
-            transform.position = Camera.main.WorldToScreenPoint(targetPosition) + screenOffset;
+            //transform.position = Camera.main.WorldToScreenPoint(targetPosition) + screenOffset;
         }
     }
 
@@ -82,7 +82,7 @@ public class PlayerUI : MonoBehaviour
 
     #region Public Methods
 
-    public void SetTarget(PlayerManager _target)
+    public void SetTarget(PlayerController _target)
     {
         if (_target == null)
         {
