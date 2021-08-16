@@ -59,7 +59,8 @@ public class Shoot : MonoBehaviour, IPunObservable
         {
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
-                pc.TakeDamage();
+                GetComponent<PlayerController>().Health -= .1f;
+                //pc.TakeDamage();
             }
             Debug.Log(hitInfo.collider.name);
         }
