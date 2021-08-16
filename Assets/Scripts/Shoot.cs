@@ -24,7 +24,7 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Update()
     {
-        if(fire)
+        if(fire && !photonView.IsMine)
         {
             ShootGun();
         }
