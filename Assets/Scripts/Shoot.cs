@@ -44,7 +44,7 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0) || fire)
             {
                 ShootGun();
             }

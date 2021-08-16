@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 
     private void OnCollisionEnter(Collision collision)
     {
+        print(collision.gameObject.name);
         if (!photonView.IsMine)
         {
             return;
