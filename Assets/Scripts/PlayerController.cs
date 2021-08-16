@@ -1,9 +1,12 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
+    public float Health = 1f;
+
     [SerializeField]
     private float _moveSpeed = -10f;
     [SerializeField]
@@ -30,7 +33,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Gravity();
-        Movement();
+        if (photonView.IsMine)
+        {
+            Movement();
+            if (Health <= 0f)
+            {
+                GameManager.Instance.LeaveRoom();
+            }
+        }
     }
 
     private void Movement()

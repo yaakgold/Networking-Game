@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
+using System.Linq;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     [Tooltip("The prefab to use for representing the player")]
     public GameObject playerPref;
+
+    public List<Spawner> spawners = new List<Spawner>();
     #endregion
 
     #region MonoBehavior Callbacks
@@ -31,7 +34,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-                PhotonNetwork.Instantiate(playerPref.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+                int randNum = Random.Range(0, spawners.Where(x => x.isUsed == false).Count());
+                PhotonNetwork.Instantiate(playerPref.name,
+                                spawners.Where(x => x.isUsed == false).ElementAt(randNum).transform.position, 
+                                Quaternion.identity,
+                                0);
+
+                spawners.Where(x => x.isUsed == false).ElementAt(randNum).isUsed = true;
             }
             else
             {

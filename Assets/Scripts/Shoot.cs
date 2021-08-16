@@ -1,14 +1,17 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class Shoot : MonoBehaviour, IPunObservable
 {
     public bool automatic;
     public float timer;
     public float fireRate = .2f;
 
     private ShootGFX shootGFX;
+
+    bool fire = false;
 
     private void Start()
     {
@@ -36,7 +39,7 @@ public class Shoot : MonoBehaviour
         }
         else
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0) || fire)
             {
                 ShootGun();
             }
@@ -54,6 +57,18 @@ public class Shoot : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, 40))
         {
             Debug.Log(hitInfo.collider.name);
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(fire);
+        }
+        else
+        {
+            fire = (bool)stream.ReceiveNext();
         }
     }
 }
