@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviourPunCallbacks
+public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 {
     public bool automatic;
     public float timer;
@@ -32,6 +32,7 @@ public class Shoot : MonoBehaviourPunCallbacks
                 {
                     ShootGun();
                     timer = 0;
+                    fire = false;
                 }
             }
             if(timer < fireRate)
@@ -51,6 +52,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private void ShootGun()
     {
+        fire = true;
         shootGFX.ShootGun();
 
         RaycastHit hitInfo;
@@ -60,10 +62,22 @@ public class Shoot : MonoBehaviourPunCallbacks
             if (hitInfo.collider.gameObject == gameObject) return;
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
-                GetComponent<PlayerController>().Health -= .1f;
-                //pc.Health -= .1f;
+                //GetComponent<PlayerController>().Health -= .1f;
+                
             }
             Debug.Log(hitInfo.collider.name);
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(fire);
+        }
+        else
+        {
+            fire = (bool)stream.ReceiveNext();
         }
     }
 }
