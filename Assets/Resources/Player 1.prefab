@@ -342,7 +342,7 @@ MonoBehaviour:
   fireRate: 0.2
   mask:
     serializedVersion: 2
-    m_Bits: 759
+    m_Bits: 256
 --- !u!114 &7593380089180485986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +377,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 7593380089180485985}
   - {fileID: 7593380089180485987}
   - {fileID: 2518520307794390692}
   - {fileID: 8707424369907108413}
