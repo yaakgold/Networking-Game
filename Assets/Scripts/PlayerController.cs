@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviourPunCallbacks
+public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 {
     public float Health = 1f;
 
@@ -110,4 +110,24 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         Health -= .1f;
     }
+
+    #region IPunObservable implementation
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            //We own this player: send other our data
+            //stream.SendNext(transform.position);
+            stream.SendNext(Health);
+        }
+        else
+        {
+            //Network player, receive data
+            //transform.position = (Vector3)stream.ReceiveNext();
+            Health = (float)stream.ReceiveNext();
+        }
+    }
+
+    #endregion
 }
