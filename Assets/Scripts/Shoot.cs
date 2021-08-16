@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour, IPunObservable
+public class Shoot : MonoBehaviour
 {
     public bool automatic;
     public float timer;
@@ -63,18 +63,6 @@ public class Shoot : MonoBehaviour, IPunObservable
                 //pc.TakeDamage();
             }
             Debug.Log(hitInfo.collider.name);
-        }
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if(stream.IsWriting)
-        {
-            stream.SendNext(fire);
-        }
-        else
-        {
-            fire = (bool)stream.ReceiveNext();
         }
     }
 }
