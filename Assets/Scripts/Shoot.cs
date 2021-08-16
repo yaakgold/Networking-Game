@@ -54,7 +54,7 @@ public class Shoot : MonoBehaviour, IPunObservable
         RaycastHit hitInfo;
         Ray ray = Camera.main.ScreenPointToRay(Vector2.zero);
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, 9))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100))
         {
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
