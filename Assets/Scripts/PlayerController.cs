@@ -51,11 +51,13 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
             gameObject.layer = 9;
         }
-
-        if (PlayerUiPrefab != null)
+        else
         {
-            GameObject _uiGo = Instantiate(PlayerUiPrefab);
-            _uiGo.GetComponent<PlayerUI>().SetTarget(this);
+            if (PlayerUiPrefab != null)
+            {
+                GameObject _uiGo = Instantiate(PlayerUiPrefab);
+                _uiGo.GetComponent<PlayerUI>().SetTarget(this);
+            }
         }
     }
 
