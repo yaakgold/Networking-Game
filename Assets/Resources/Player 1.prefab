@@ -342,7 +342,7 @@ MonoBehaviour:
   fireRate: 0.2
   mask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 0
 --- !u!114 &7593380089180485986
 MonoBehaviour:
   m_ObjectHideFlags: 0
