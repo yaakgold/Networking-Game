@@ -54,7 +54,7 @@ public class Shoot : MonoBehaviour, IPunObservable
         RaycastHit hitInfo;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hitInfo, float.MaxValue))
+        if (Physics.Raycast(ray, out hitInfo, float.MaxValue, LayerMask.GetMask("Enemy")))
         {
             if (hitInfo.collider.gameObject == gameObject)
             {
