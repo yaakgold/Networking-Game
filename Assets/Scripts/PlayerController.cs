@@ -108,32 +108,26 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         _animator.SetBool("grounded", _isGrounded);
     }
 
-    #region IPunObservable implementation
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (stream.IsWriting)
+        if(collision.gameObject.CompareTag("Bullet"))
         {
-            //We own this player: send other our data
-            stream.SendNext(Health);
-        }
-        else
-        {
-            //Network player, receive data
-            Health = (float)stream.ReceiveNext();
+            photonView.RPC("TakeDamage", photonView.Owner, collision.gameObject.GetPhotonView().ViewID);
         }
     }
 
-    #endregion
-
-
-    private void OnCollisionEnter(Collision collision)
+    [PunRPC]
+    void TakeDamage(int viewID)
     {
-        print(collision.gameObject.name);
-        if(collision.gameObject.CompareTag("Bullet"))
-        {
-            Health -= 100f;
-            Destroy(collision.gameObject);
-        }
+        GameObject go = PhotonView.Find(viewID).gameObject;
+
+        print(go.name);
+        Health -= 100f;
+        Destroy(go);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        
     }
 }

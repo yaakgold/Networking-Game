@@ -24,11 +24,6 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Update()
     {
-        if(fire)
-        {
-            ShootGun();
-        }
-
         if(automatic)
         {
             if (!photonView.IsMine) return;
@@ -58,27 +53,16 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 
     private void ShootGun()
     {
-        fire = true;
-        shootGFX.ShootGun();
+        photonView.RPC("Fire", photonView.Owner);
 
-        ShootGFX gfx = GetComponent<ShootGFX>();
-
-        var bullet = Instantiate(bulletPref, gfx.firePointPlayer.transform.position, Quaternion.identity);
+        var bullet = PhotonNetwork.Instantiate("Bullet", shootGFX.firePointPlayer.transform.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * power);
+    }
 
-        //RaycastHit hitInfo;
-
-        //if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, mask))
-        //{
-        //    if (hitInfo.collider.gameObject == gameObject) return;
-        //    if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
-        //    {
-        //        //GetComponent<PlayerController>().Health -= .1f;
-        //        pc.Health -= .1f;
-        //        print(pc.Health);
-        //    }
-        //    Debug.Log(hitInfo.collider.name);
-        //}
+    [PunRPC]
+    void Fire()
+    {
+        shootGFX.ShootGun();
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
