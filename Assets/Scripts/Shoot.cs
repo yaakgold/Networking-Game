@@ -24,30 +24,25 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Update()
     {
+        if(fire)
+        {
+            ShootGun();
+        }
         if(automatic)
         {
-            if (!photonView.IsMine)
+            if (!photonView.IsMine) return;
+            if (Input.GetMouseButton(0) || fire)
             {
-                if (fire)
+                timer += Time.deltaTime;
+                if(timer >= fireRate || fire)
                 {
                     ShootGun();
+                    timer = 0;
                 }
             }
-            else
+            if(timer < fireRate)
             {
-                if (Input.GetMouseButton(0) || fire)
-                {
-                    timer += Time.deltaTime;
-                    if(timer >= fireRate || fire)
-                    {
-                        ShootGun();
-                        timer = 0;
-                    }
-                }
-                if(timer < fireRate)
-                {
-                    timer += Time.deltaTime;
-                }
+                timer += Time.deltaTime;
             }
         }
         else
@@ -90,7 +85,6 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
         if(stream.IsWriting)
         {
             stream.SendNext(fire);
-            fire = false;
         }
         else
         {
