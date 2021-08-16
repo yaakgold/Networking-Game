@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if(!photonView.IsMine)
         {
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
+            gameObject.layer = LayerMask.GetMask("Enemy");
         }
 
         if (PlayerUiPrefab != null)
