@@ -54,8 +54,13 @@ public class Shoot : MonoBehaviour, IPunObservable
         RaycastHit hitInfo;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hitInfo, 4000))
+        if (Physics.Raycast(ray, out hitInfo, float.MaxValue))
         {
+            if (hitInfo.collider.gameObject == gameObject)
+            {
+                print("HIt self");
+                return;
+            }
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
                 pc.TakeDamage();
