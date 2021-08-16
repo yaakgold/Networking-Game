@@ -9,6 +9,8 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
     public float timer;
     public float fireRate = .2f;
     public LayerMask mask;
+    public GameObject bulletPref;
+    public float power;
 
     private ShootGFX shootGFX;
 
@@ -55,18 +57,24 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
         fire = true;
         shootGFX.ShootGun();
 
-        RaycastHit hitInfo;
+        ShootGFX gfx = GetComponent<ShootGFX>();
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, mask))
-        {
-            if (hitInfo.collider.gameObject == gameObject) return;
-            if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
-            {
-                //GetComponent<PlayerController>().Health -= .1f;
-                pc.Health -= .1f;
-            }
-            Debug.Log(hitInfo.collider.name);
-        }
+        var bullet = Instantiate(bulletPref, gfx.firePointPlayer.transform.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * power);
+
+        //RaycastHit hitInfo;
+
+        //if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, mask))
+        //{
+        //    if (hitInfo.collider.gameObject == gameObject) return;
+        //    if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
+        //    {
+        //        //GetComponent<PlayerController>().Health -= .1f;
+        //        pc.Health -= .1f;
+        //        print(pc.Health);
+        //    }
+        //    Debug.Log(hitInfo.collider.name);
+        //}
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

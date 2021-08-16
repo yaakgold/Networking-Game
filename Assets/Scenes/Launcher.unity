@@ -385,8 +385,7 @@ MonoBehaviour:
     shoot a man'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
-    type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -687,8 +686,7 @@ MonoBehaviour:
   m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
-    type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -822,8 +820,7 @@ MonoBehaviour:
   m_text: Play Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
-    type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2241,8 +2238,7 @@ MonoBehaviour:
   m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
-    type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

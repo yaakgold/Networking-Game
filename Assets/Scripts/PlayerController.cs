@@ -125,4 +125,19 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     }
 
     #endregion
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+        
+        if (!other.name.Contains("Bullet"))
+        {
+            return;
+        }
+        Health -= 0.1f;
+        Destroy(other.gameObject);
+    }
 }
