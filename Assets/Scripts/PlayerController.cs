@@ -106,11 +106,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         _animator.SetBool("grounded", _isGrounded);
     }
 
-    public void TakeDamage()
-    {
-        Health -= .1f;
-    }
-
     #region IPunObservable implementation
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -118,13 +113,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             //We own this player: send other our data
-            //stream.SendNext(transform.position);
             stream.SendNext(Health);
         }
         else
         {
             //Network player, receive data
-            //transform.position = (Vector3)stream.ReceiveNext();
             Health = (float)stream.ReceiveNext();
         }
     }

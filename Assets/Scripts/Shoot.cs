@@ -53,14 +53,13 @@ public class Shoot : MonoBehaviour
         shootGFX.ShootGun();
 
         RaycastHit hitInfo;
-        Ray ray = Camera.main.ScreenPointToRay(Vector2.zero);
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, mask))
         {
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
-                GetComponent<PlayerController>().Health -= .1f;
-                //pc.TakeDamage();
+                //GetComponent<PlayerController>().Health -= .1f;
+                pc.Health -= .1f;
             }
             Debug.Log(hitInfo.collider.name);
         }
