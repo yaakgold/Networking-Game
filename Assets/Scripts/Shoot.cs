@@ -32,12 +32,12 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     ShootGun();
                     timer = 0;
-                    fire = false;
                 }
             }
             if(timer < fireRate)
             {
                 timer += Time.deltaTime;
+                fire = false;
             }
         }
         else
