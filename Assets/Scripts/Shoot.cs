@@ -52,9 +52,9 @@ public class Shoot : MonoBehaviour, IPunObservable
         shootGFX.ShootGun();
 
         RaycastHit hitInfo;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Vector2.zero);
 
-        if (Physics.Raycast(ray, out hitInfo, float.MaxValue, 9))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, 9))
         {
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
