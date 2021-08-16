@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour, IPunObservable
     public bool automatic;
     public float timer;
     public float fireRate = .2f;
+    public LayerMask mask;
 
     private ShootGFX shootGFX;
 
@@ -54,7 +55,7 @@ public class Shoot : MonoBehaviour, IPunObservable
         RaycastHit hitInfo;
         Ray ray = Camera.main.ScreenPointToRay(Vector2.zero);
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, 8))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, mask))
         {
             if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
             {
