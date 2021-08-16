@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
+        if (stream.IsReading)
         {
             //We own this player: send other our data
             stream.SendNext(Health);
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         print(collision.gameObject.name);
         if(collision.gameObject.CompareTag("Bullet"))
         {
-            Health -= 1f;
+            Health -= 100f;
             Destroy(collision.gameObject);
         }
     }
