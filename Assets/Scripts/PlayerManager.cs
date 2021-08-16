@@ -56,6 +56,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
 
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         // #Important
         // used in GameManager.cs: we keep track of the localPlayer instance to prevent instantiation when levels are synchronized
         if (photonView.IsMine)
@@ -188,7 +191,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode loadingMode)
+    void OnSceneLoaded(Scene scene, LoadSceneMode loadingMode)
     {
         CalledOnLevelWasLoaded(scene.buildIndex);
     }
