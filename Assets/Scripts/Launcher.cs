@@ -105,7 +105,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        //progressLabel.SetActive(false);
+        progressLabel.SetActive(false);
         controlPanel.SetActive(true);
 
         isConnecting = false;

@@ -85,7 +85,6 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
         if(stream.IsWriting)
         {
             stream.SendNext(fire);
-            fire = false;
         }
         else
         {
