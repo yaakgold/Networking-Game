@@ -24,25 +24,30 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Update()
     {
-        if(fire)
-        {
-            ShootGun();
-        }
         if(automatic)
         {
-            if (!photonView.IsMine) return;
-            if (Input.GetMouseButton(0) || fire)
+            if (!photonView.IsMine)
             {
-                timer += Time.deltaTime;
-                if(timer >= fireRate || fire)
+                if (fire)
                 {
                     ShootGun();
-                    timer = 0;
                 }
             }
-            if(timer < fireRate)
+            else
             {
-                timer += Time.deltaTime;
+                if (Input.GetMouseButton(0) || fire)
+                {
+                    timer += Time.deltaTime;
+                    if(timer >= fireRate || fire)
+                    {
+                        ShootGun();
+                        timer = 0;
+                    }
+                }
+                if(timer < fireRate)
+                {
+                    timer += Time.deltaTime;
+                }
             }
         }
         else
