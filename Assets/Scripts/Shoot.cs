@@ -39,6 +39,7 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
             if(timer < fireRate)
             {
                 timer += Time.deltaTime;
+                fire = false;
             }
         }
         else
@@ -46,6 +47,7 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
             if(Input.GetMouseButtonDown(0) || fire)
             {
                 ShootGun();
+                fire = false;
             }
         }
 
@@ -53,22 +55,27 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 
     private void ShootGun()
     {
-        photonView.RPC("Fire", photonView.Owner);
+        fire = true;
+        shootGFX.ShootGun();
 
-<<<<<<< HEAD
-        AudioManager.Instance.Play("bang");
+        ShootGFX gfx = GetComponent<ShootGFX>();
 
         var bullet = Instantiate(bulletPref, gfx.firePointPlayer.transform.position, Quaternion.identity);
-=======
-        var bullet = PhotonNetwork.Instantiate("Bullet", shootGFX.firePointPlayer.transform.position, Quaternion.identity);
->>>>>>> 50e8e258c3db2dd39cdfae8314440241f590f577
         bullet.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * power);
-    }
 
-    [PunRPC]
-    void Fire()
-    {
-        shootGFX.ShootGun();
+        //RaycastHit hitInfo;
+
+        //if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, 100, mask))
+        //{
+        //    if (hitInfo.collider.gameObject == gameObject) return;
+        //    if(hitInfo.collider.gameObject.TryGetComponent(out PlayerController pc))
+        //    {
+        //        //GetComponent<PlayerController>().Health -= .1f;
+        //        pc.Health -= .1f;
+        //        print(pc.Health);
+        //    }
+        //    Debug.Log(hitInfo.collider.name);
+        //}
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

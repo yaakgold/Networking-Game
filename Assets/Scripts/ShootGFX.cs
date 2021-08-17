@@ -21,6 +21,7 @@ public class ShootGFX : MonoBehaviour
 
     public void ShootGun()
     {
+        AudioManager.Instance.Play("bang");
         Instantiate(muzzleFlash, firePointOffScreen.position, Quaternion.identity);
         Instantiate(muzzleFlash, firePointPlayer.position, Quaternion.identity);
     }
