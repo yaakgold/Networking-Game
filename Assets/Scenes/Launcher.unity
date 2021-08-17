@@ -183,7 +183,8 @@ MonoBehaviour:
   m_text: back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -519,7 +520,8 @@ MonoBehaviour:
     shoot a man'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -832,7 +834,8 @@ MonoBehaviour:
   m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -966,7 +969,8 @@ MonoBehaviour:
   m_text: Play Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1559,7 +1563,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f931a8be5581e0498afb4a57620630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: bang
+    clip: {fileID: 8300000, guid: c054e73cb51140e4e9e498c9d4710452, type: 3}
+    loop: 0
+    pitch: 1
+    volume: 0.5
+    source: {fileID: 0}
 --- !u!4 &1102370844
 Transform:
   m_ObjectHideFlags: 0
@@ -2288,15 +2298,14 @@ MonoBehaviour:
   m_text: 'Ya''akov worked on the player spawning and networking.
 
 
-    Ethan worked
-    on the player animation, movement, and assisted with the networking.
+    Ethan worked on the player animation, movement, and assisted with the networking.
 
 
-    Salem
-    built the map with assets, made the UI, and set up the audio.'
+    Salem built the map with assets, made the UI, and set up the audio.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2430,7 +2439,8 @@ MonoBehaviour:
   m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2853,7 +2863,8 @@ MonoBehaviour:
   m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
-  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae, type: 2}
+  m_sharedMaterial: {fileID: 4577741511076006540, guid: f7c71675d8cabb242bf9c9a22bd8a9ae,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
