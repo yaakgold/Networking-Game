@@ -60,6 +60,8 @@ public class Shoot : MonoBehaviourPunCallbacks, IPunObservable
 
         ShootGFX gfx = GetComponent<ShootGFX>();
 
+        AudioManager.Instance.Play("bang");
+
         var bullet = Instantiate(bulletPref, gfx.firePointPlayer.transform.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * power);
 
