@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,13 @@ public class DestroyGameObject : MonoBehaviour
 
     private void DestroyThisObject()
     {
-        Destroy(this.gameObject);
+        if(TryGetComponent(out PhotonView pv))
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
