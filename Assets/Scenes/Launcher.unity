@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: bang
-    clip: {fileID: 8300000, guid: ccf6a2f9dacb28f4e99450bae3d7df58, type: 3}
+    clip: {fileID: 8300000, guid: c054e73cb51140e4e9e498c9d4710452, type: 3}
     loop: 0
     pitch: 1
     volume: 0.5
