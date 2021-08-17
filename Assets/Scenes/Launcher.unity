@@ -1559,13 +1559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f931a8be5581e0498afb4a57620630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: bang
-    clip: {fileID: 8300000, guid: ccf6a2f9dacb28f4e99450bae3d7df58, type: 3}
-    loop: 0
-    pitch: 1
-    volume: 0.5
-    source: {fileID: 0}
+  sounds: []
 --- !u!4 &1102370844
 Transform:
   m_ObjectHideFlags: 0
